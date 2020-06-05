@@ -1,12 +1,12 @@
-public class Tesla : IElectric
+public class Tesla : Vehicle, IElectric
 {
     public double BatteryKWh { get; set; }
     public override string Name { get; set; } = "Tesla";
 
-    public int CurrentChargePercentage { get; set; }
+    public int CurrentChargePercentage { get; set; } = 50;
 
     public void ChargeBattery()
     {
-        // method definition omitted
+        CurrentChargePercentage = 100;
     }
 }

@@ -1,13 +1,16 @@
 using System;
 
-public class Cessna : Vehicle
+public class Cessna : Vehicle, IGas
 {
     public double FuelCapacity { get; set; }
 
     public override string Name { get; set; } = "Cessna";
-    public void RefuelTank()
+
+    public int CurrentTankPercentage { get; set; } = 20;
+
+    public void Refueltank()
     {
-        // method definition omitted
+        CurrentTankPercentage = 100;
     }
 
     public override void Drive()
@@ -21,4 +24,5 @@ public class Cessna : Vehicle
         Console.WriteLine($"The {Name} rolls to a stop");
         Moving = false;
     }
+
 }

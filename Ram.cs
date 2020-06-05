@@ -1,15 +1,16 @@
 using System;
 
-public class Ram : Vehicle  // Gas powered truck
+public class Ram : Vehicle, IGas  // Gas powered truck
 {
     public double FuelCapacity { get; set; }
 
     public override string Name { get; set; } = "Ram";
 
+    public int CurrentTankPercentage { get; set; } = 0;
 
-    public void RefuelTank()
+    public void Refueltank()
     {
-        // method definition omitted
+        CurrentTankPercentage = 100;
     }
 
     public override void Turn(string direction)
