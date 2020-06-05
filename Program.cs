@@ -1,27 +1,62 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace garys_garage
 {
     class Program
     {
-        static void Main(string[] args)
+        static void Main (string[] args)
         {
             Zero fxs = new Zero();
+            Zero fx = new Zero();
             Tesla modelS = new Tesla();
-            Cessna mx410 = new Cessna();
-            Ram ram2500 = new Ram();
 
-            fxs.Drive();
-            modelS.Drive();
-            ram2500.Drive();
+            List<IElectric> electricVehicles = new List<IElectric>() {
+                fx, fxs, modelS
+            };
 
-            fxs.Turn("right");
-            modelS.Turn("left");
-            mx410.Turn("back");
-            ram2500.Turn("left");
+            Console.WriteLine("Electric Vehicles");
+            foreach(IElectric ev in electricVehicles)
+            {
+                Console.WriteLine($"{ev.CurrentChargePercentage}");
+            }
 
+            foreach(IElectric ev in electricVehicles)
+            {
+                // This should charge the vehicle to 100%
+                ev.ChargeBattery();
+            }
 
+            foreach(IElectric ev in electricVehicles)
+            {
+                Console.WriteLine($"{ev.CurrentChargePercentage}");
+            }
 
+            /***********************************************/
+
+            Ram ram = new Ram ();
+            Cessna cessna150 = new Cessna ();
+
+            List<???> gasVehicles = new List<???>() {
+                ram, cessna150
+            };
+
+            Console.WriteLine("Gas Vehicles");
+            foreach(??? gv in gasVehicles)
+            {
+                Console.WriteLine($"{gv.CurrentTankPercentage}");
+            }
+
+            foreach(??? gv in gasVehicles)
+            {
+                // This should completely refuel the gas tank
+                gv.RefuelTank();
+            }
+
+            foreach(??? gv in gasVehicles)
+            {
+                Console.WriteLine($"{gv.CurrentTankPercentage}");
+            }
         }
     }
 }
